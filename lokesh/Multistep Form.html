@@ -1,0 +1,42 @@
+<form id="regForm" action="">
+
+<h1>Register:</h1>
+
+<!-- One "tab" for each step in the form: -->
+<div class="tab">Name:
+  <p><input placeholder="lokesh..." oninput="this.className = ''"></p>
+  <p><input placeholder="Ragav..." oninput="this.className = ''"></p>
+</div>
+
+<div class="tab">Contact Info:
+  <p><input placeholder="lokeshragavachu@gmail.com" oninput="this.className = ''"></p>
+  <p><input placeholder="7904541560" oninput="this.className = ''"></p>
+</div>
+
+<div class="tab">Birthday:
+  <p><input placeholder="16" oninput="this.className = ''"></p>
+  <p><input placeholder="05" oninput="this.className = ''"></p>
+  <p><input placeholder="1996" oninput="this.className = ''"></p>
+</div>
+
+<div class="tab">Login Info:
+  <p><input placeholder="root" oninput="this.className = ''"></p>
+  <p><input placeholder="1234" oninput="this.className = ''"></p>
+</div>
+
+<div style="overflow:auto;">
+  <div style="float:right;">
+    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  </div>
+</div>
+
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+</div>
+
+</form>

@@ -1,0 +1,51 @@
+<!-- loginAction.jsp -->
+
+<%@ page import="java.util.*"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="java.text.*"%>
+
+<%
+	Statement st=null;
+	Connection con=null;
+	ResultSet rs=null;
+
+ 
+   // JDBC driver name and database URL
+   	  final String DB_URL  = "jdbc:mysql://localhost:3306/sample";
+	 //  Database credentials
+      final String DB_USER = "root";
+      final String DB_PASS = "1234";
+	
+	String user = request.getParameter("user");
+	String pass = request.getParameter("pass");
+
+	try{
+ 
+	Class.forName("com.mysql.jdbc.Driver").newInstance();
+	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample","root","1234");
+	st = con.createStatement();
+
+	String QueryString = "select user,pass from auth where user='"+user+"' and pass = '"+pass+"'";
+	rs = st.executeQuery(QueryString);
+	if(rs.next()){
+	
+	out.print("Login Successfully."); 
+	}
+	else
+	out.print("User Name and password are not Valid..");
+	}
+	
+	catch (Exception e){
+  out.print(e);
+	}
+	finally{
+	out.println("Statement passed!");
+	st.close();
+	out.println("Resultset passed!");
+	rs.close();
+	out.println("Connection passed!");
+	con.close();
+	}
+%>
+
